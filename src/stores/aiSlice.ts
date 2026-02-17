@@ -8,7 +8,7 @@ export type AISlice ={
     generateRecipe: (prompt: string) => Promise<void>
 }
 
-export const createAISlice : StateCreator<AISlice, [],[], AISlice> = (set, get)=>({
+export const createAISlice : StateCreator<AISlice, [],[], AISlice> = (set)=>({
 
     recipe : '', 
     isGenerating: false,
