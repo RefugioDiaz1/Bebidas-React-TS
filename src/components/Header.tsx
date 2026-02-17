@@ -76,6 +76,17 @@ export default function Header() {
             >
               Favoritos
             </NavLink>
+
+            <NavLink
+              to="/generate"
+              className={({ isActive }) =>
+                isActive
+                  ? "text-orange-500 uppercase font-bold"
+                  : "text-white uppercase font-bold"
+              }
+            >
+              Generar con IA
+            </NavLink>
           </nav>
         </div>
         {isHome && (
@@ -114,10 +125,11 @@ export default function Header() {
                 onChange={handleChange}
                 value={searchFilters.category}
               >
+                <option value="1">--- Seleccione ---</option>
                 {categories.drinks.map((item)=> (
                   <option key={item.strCategory} value={item.strCategory}>{item.strCategory}</option>
                 ))}
-                <option value="1">--- Seleccione ---</option>
+                
               </select>
             </div>
 
