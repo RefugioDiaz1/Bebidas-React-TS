@@ -3,6 +3,8 @@ import { NavLink, useLocation} from "react-router-dom";
 import { useAppStore } from "../stores/useAppStore";
 
 export default function Header() {
+
+  const {showNotification} = useAppStore()
   const [searchFilters, setSearchFilters]= useState({
     ingredient: '',
     category : ''
@@ -32,7 +34,11 @@ export default function Header() {
 
     // TODO: Validar
     if (Object.values(searchFilters).includes('')) {
-      console.log('Todos los campos son obligatorios')
+      showNotification({
+        text: 'Todos los campos son obligatorios',
+        error: true
+
+      })
       return
     }
 
